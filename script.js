@@ -31,13 +31,14 @@ function showSuggestions(results, inputVal) {
     li.classList.add("has-suggestions");
     li.setAttribute("onclick", "useSuggestion(`" + result + "`)");
     
-    let bold = "<b>" + result.substr(0, inputVal.length) + "</b>";
-    let word = result.substr(inputVal.length);
+    const regex = new RegExp(inputVal, "gi");
+    const boldedResult = result.replace(regex, (match) => `<b>${match}</b>`);
 
-    li.innerHTML = bold + word;
+    li.innerHTML = boldedResult;
     suggestionsList.appendChild(li);
   });
 }
+
 
   function useSuggestion(e) {
     const chosenFruit = e.target.textContent;
