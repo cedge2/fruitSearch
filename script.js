@@ -29,7 +29,7 @@ function showSuggestions(results, inputVal) {
   results.forEach(function (result) {
     const li = document.createElement("li");
     li.classList.add("has-suggestions");
-    li.setAttribute("onclick", "useSuggestion(`" + result + "`)");
+
     
     const regex = new RegExp(inputVal, "gi");
     const boldedResult = result.replace(regex, (match) => `<b>${match}</b>`);
